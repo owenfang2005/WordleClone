@@ -3,11 +3,7 @@
 #include <stdlib.h>
 
 int main(void) {
-//     {
-//     "solutions": [
-//         {"word": "plane", "id": 1}
-//     ]
-// }
+
     FILE *fh_input;
     fh_input = fopen("words.txt", "r");
     FILE *fh_output;
