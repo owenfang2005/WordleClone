@@ -4,19 +4,24 @@
 
 int main(void) {
 
+    // Creating input and output file
     FILE *fh_input;
     fh_input = fopen("words.txt", "r");
     FILE *fh_output;
     fh_output = fopen("db.json", "w");
 
+    // Print beginning of output file
     fprintf(fh_output, "{\n");
     fprintf(fh_output, "\t\"solutions\": [\n");
 
-
+    // Including newline and terminating character
     char word[7];
     int count = 1;
+    // While the file is not empty and the last word is "pupal"
     while (fgets(word, 7, fh_input) != NULL && (word[0] != 'p' || word[1] != 'u' || word[2] != 'p' || word[3] != 'a' || word[4] != 'l')) {
+        // Remove newline from the array
         word[strcspn(word, "\n")] = 0;
+        // Print the word in proper format
         fprintf(fh_output, "\t\t{\"word\": \"%s\", \"id\": %d},\n", word, count);
         count++;
     }
