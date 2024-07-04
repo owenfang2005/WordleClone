@@ -1,4 +1,5 @@
 import { useState } from 'react'
+// const fs = require('fs');
 
 const useWordle = (solution) => {
     const [turn, setTurn] = useState(0) 
@@ -11,7 +12,7 @@ const useWordle = (solution) => {
     // e.g. [{key: 'a', color: yellow}]
 
     const formatGuess = () => {
-        
+        console.log('formatting the guess - ', currentGuess)
     }
 
     // add a new guess to the guesses state
@@ -22,10 +23,44 @@ const useWordle = (solution) => {
 
     }
 
+    // function to determine if word is in 5 letter word list
+
+    // fs.readFile('words.txt', 'utf8', (err, data) => {
+    //     if (err) {
+    //         console.error(err);
+    //         return;
+    //     }
+    //     console.log(data)
+    // });
+
     // handle keyup event and track current guess
     // if user presses enter, add the new guess
     
     const handleKeyup = ({ key }) => {
+        if (key === 'Enter') {
+            // only add guess if turn is less than 5
+            if (turn > 5) {
+                console.log('No more guesses. You lost!')
+                return
+            }
+            // do not allow repeat answers
+            if (history.includes(currentGuess)) {
+                console.log('You already tried that word.')
+                return
+            }
+            // check word is 5 chars long
+            if (currentGuess.length !== 5) {
+                console.log('Your guess must be 5 letters long.')
+                return
+            }
+            // *EXTRA* check if word is a part of the words.txt file
+            // if(!fh_input.includes(currentGuess)) {
+            //     console.log('Invalid word. Try again!')
+            //     return
+            // }
+            
+            formatGuess()
+        }
         if (key === 'Backspace') {
             setCurrentGuess((prev) => {
                 return prev.slice(0, -1)
