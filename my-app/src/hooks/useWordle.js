@@ -11,16 +11,16 @@ const useWordle = (solution) => {
     //format a guess into an array of letter objects
     // e.g. [{key: 'a', color: yellow}]
 
-    const formatGuess = () => {
+    const formatGuess = () => { // fires when conditions are right (must be 5 letters long, not be guessed before, not exceed number of guesses)
         // console.log('formatting the guess - ', currentGuess)
-        let solutionArray = [...solution]
+        let solutionArray = [...solution] // Create an array (the ... separates the 5 letters of the solution into 5 separate elements)
         let formattedGuess = [...currentGuess].map((letter) => {
-            return {key: letter, color: 'grey'}
+            return {key: letter, color: 'grey'} //gives every letter in the guess a key and color (by default grey)
         })
 
         // find any green letters
         formattedGuess.forEach((letter, index) => {
-            if (solutionArray[index] === letter.key) {
+            if (solutionArray[index] === letter.key) { // if the guess at index: index is the same as the solution at that index, turn green
                 formattedGuess[index].color = 'green'
                 solutionArray[index] = null
             }
@@ -28,7 +28,7 @@ const useWordle = (solution) => {
 
         // find any yellow letters
         formattedGuess.forEach((letter, index) => {
-            if (solutionArray.includes(letter.key) && letter.color !== 'green') {
+            if (solutionArray.includes(letter.key) && letter.color !== 'green') { // if the letter exists in the solution and it is not green, turn yellow
                 formattedGuess[index].color = 'yellow'
                 solutionArray[solutionArray.indexOf(letter.key)] = null
             }
@@ -43,18 +43,18 @@ const useWordle = (solution) => {
     
     const addNewGuess = (formattedGuess) => {
         if (currentGuess === solution) {
-            setIsCorrect(true)
+            setIsCorrect(true) // if the guess is the solution, user wins the game
         }
         setGuesses((prevGuesses) => {
-            let newGuesses = [...prevGuesses]
-            newGuesses[turn] = formattedGuess
+            let newGuesses = [...prevGuesses] // newGuesses variable is an array of previous guesses
+            newGuesses[turn] = formattedGuess // add the new guess into this array
             return newGuesses
         })
         setHistory((prevHistory) => {
-            return [...prevHistory, currentGuess] 
+            return [...prevHistory, currentGuess]  // add the new guess into the history of guesses
         })
         setTurn((prevTurn) => {
-            return prevTurn + 1
+            return prevTurn + 1 // add one to the turn
         })
         setCurrentGuess('')
     }
@@ -96,24 +96,24 @@ const useWordle = (solution) => {
             // }
             
             const formatted = formatGuess()
-            addNewGuess(formatted)
+            addNewGuess(formatted) // fires addNewGuess function
         }
         if (key === 'Backspace') {
             setCurrentGuess((prev) => {
-                return prev.slice(0, -1)
+                return prev.slice(0, -1) // deletes a letter
             })
             return
         }
-        if (/^[A-Za-z]$/.test(key)) {
+        if (/^[A-Za-z]$/.test(key)) { // only accepts if input is a letter
             if (currentGuess.length < 5) {
                 setCurrentGuess((prev) => {
-                    return prev + key
+                    return prev + key // adds the letter to the word if the word is smaller than 5 letters
                 })
             }
         }
     }
 
-    return {turn, currentGuess, guesses, isCorrect, handleKeyup}
+    return {turn, currentGuess, guesses, isCorrect, handleKeyup} // returns functions to be used in other files
 }
 
 export default useWordle

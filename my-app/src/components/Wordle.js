@@ -12,7 +12,7 @@ export default function Wordle({ solution }) {
     }, [handleKeyup])
 
     useEffect(() => {
-      console.log(guesses, turn, isCorrect)
+      console.log(guesses, turn, isCorrect) // console log is used for testing purposes. in this case we can see the guesses, turn, and if the user wins the game
     }, [guesses, turn, isCorrect])
 
   return (
@@ -21,7 +21,7 @@ export default function Wordle({ solution }) {
       <br></br><br></br>
       Answer: { solution }
       <br></br><br></br>
-      <Grid currentGuess={currentGuess} guesses={guesses} turn={turn}/>
+      <Grid currentGuess={currentGuess} guesses={guesses} turn={turn}/> 
     </div>
   )
 }

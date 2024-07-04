@@ -18,24 +18,24 @@ export default function Rows({ guess, currentGuess }) {
     )
   }
 
-  if (currentGuess) {
-    let letters = currentGuess.split('')
+  if (currentGuess) { // if index of guess matches. in other words, the current guess we are on
+    let letters = currentGuess.split('') // create an array of the letters in currentGuess
 
     return (
        <Container>
         <Row className="row-current">
             {letters.map((letter, i) => (
-              <Col key={i} className="filled">{letter}</Col>
+              <Col key={i} className="filled">{letter}</Col> // prints "letters" or the current letters in currentGuess
             ))}
             {[...Array(5 - letters.length)].map((v, i) => (
-              <Col key={i}></Col>
+              <Col key={i}></Col> // prints the remaining boxes if currentGuess is not 5 letters yet
             ))}
         </Row>
        </Container>
     )
   }
 
-  return (
+  return ( // if no guess, returns an empty row
     <Container>
         <Row className="row-empty">
             <Col></Col>
