@@ -4,6 +4,7 @@ import Wordle from "./components/Wordle.js"
 function App() {
   const [solution, setSolution] = useState(null)
   useEffect(() => {
+    // npx json-server ./data/db.json --port 3001
     fetch('http://localhost:3001/solutions')
       .then(res => res.json())
       .then(json => {
