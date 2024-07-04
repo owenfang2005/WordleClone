@@ -32,31 +32,36 @@ h1 {
 .green {
   --background: #48be48; /* double dash makes it a variable */
   --border-color: #48be48;
-  animation: flip 0.5s ease forwards
+  animation: flip 0.6s ease forwards;
 }
 .grey {
   --background: #747474;
   --border-color: #747474;
-  animation: flip 0.5s ease forwards
+  animation: flip 0.6s ease forwards;
 }
 .yellow {
   --background: #dbc253;
   --border-color: #dbc253;
-  animation: flip 0.5s ease forwards
+  animation: flip 0.6s ease forwards;
 }
 
 /* animation delay for each column in the row */
-.row > div:nth-child(2) {
+.row-past > div:nth-child(2) {
   animation-delay: 0.2s;
 }
-.row > div:nth-child(3) {
+.row-past > div:nth-child(3) {
   animation-delay: 0.4s;
 }
-.row > div:nth-child(4) {
+.row-past > div:nth-child(4) {
   animation-delay: 0.6s;
 }
-.row > div:nth-child(5) {
+.row-past > div:nth-child(5) {
   animation-delay: 0.8s;
+}
+
+/* when letter is being typed */
+.filled {
+  animation: pop 0.08s ease-in-out forwards;
 }
 
 /* animations */
@@ -82,4 +87,18 @@ h1 {
     border-color: var(--border-color);
     color: #eee;
   }
+}
+
+@keyframes pop {
+   0% {
+    transform: scale(1);
+    border-color: #eee;
+   }
+   50% {
+    transform: scale(1.2);
+   }
+   100% {
+    transform: scale(1);
+    border-color: #1d1d1d;
+   }
 }
