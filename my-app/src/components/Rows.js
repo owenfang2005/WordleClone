@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 
-export default function Rows({ guess }) {
+export default function Rows({ guess, currentGuess }) {
 
   if (guess) {
     return (
@@ -15,6 +15,23 @@ export default function Rows({ guess }) {
           ))}
         </Row>
       </Container>
+    )
+  }
+
+  if (currentGuess) {
+    let letters = currentGuess.split('')
+
+    return (
+       <Container>
+        <Row className="row-current">
+            {letters.map((letter, i) => (
+              <Col key={i} className="filled">{letter}</Col>
+            ))}
+            {[...Array(5 - letters.length)].map((v, i) => (
+              <Col key={i}></Col>
+            ))}
+        </Row>
+       </Container>
     )
   }
 
