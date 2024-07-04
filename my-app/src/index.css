@@ -30,7 +30,7 @@ h1 {
   font-size: 2em;
 }
 .green {
-  --background: #48be48;
+  --background: #48be48; /* double dash makes it a variable */
   --border-color: #48be48;
   animation: flip 0.5s ease forwards
 }
