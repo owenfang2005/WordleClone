@@ -30,8 +30,8 @@ h1 {
   font-size: 2em;
 }
 .green {
-  --background: #48be48; /* double dash makes it a variable */
-  --border-color: #48be48;
+  --background: #3bad3b; /* double dash makes it a variable */
+  --border-color: #3bad3b;
   animation: flip 0.6s ease forwards;
 }
 .grey {
@@ -43,6 +43,25 @@ h1 {
   --background: #dbc253;
   --border-color: #dbc253;
   animation: flip 0.6s ease forwards;
+}
+
+/* for keypad */
+.keypad {
+  max-width: 500px;
+  margin: 20px auto;
+}
+div.Z {
+  margin: 6px !important;
+  width: 40px !important;
+}
+.keypad > div {
+  margin: 5px;
+  width: 40px;
+  height: 50px;
+  background: #eee;
+  display: inline-block;
+  border-radius: 6px;
+  line-height: 50px;
 }
 
 /* animation delay for each column in the row */
