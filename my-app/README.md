@@ -1,4 +1,7 @@
 # USE npx json-server ./data/db.json --port 3001 TO START JSON SERVER !!!!!!!!!!!!!!!!!!!!!!!!
+# To add:
+# - Check if word is valid
+# - Clickable keyboard
 
 # Getting Started with Create React App
 
