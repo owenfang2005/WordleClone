@@ -12,7 +12,29 @@ const useWordle = (solution) => {
     // e.g. [{key: 'a', color: yellow}]
 
     const formatGuess = () => {
-        console.log('formatting the guess - ', currentGuess)
+        // console.log('formatting the guess - ', currentGuess)
+        let solutionArray = [...solution]
+        let formattedGuess = [...currentGuess].map((letter) => {
+            return {key: letter, color: 'grey'}
+        })
+
+        // find any green letters
+        formattedGuess.forEach((letter, index) => {
+            if (solutionArray[index] === letter.key) {
+                formattedGuess[index].color = 'green'
+                solutionArray[index] = null
+            }
+        })
+
+        // find any yellow letters
+        formattedGuess.forEach((letter, index) => {
+            if (solutionArray.includes(letter.key) && letter.color !== 'green') {
+                formattedGuess[index].color = 'yellow'
+                solutionArray[solutionArray.indexOf(letter.key)] = null
+            }
+        })
+
+        return formattedGuess
     }
 
     // add a new guess to the guesses state
@@ -59,7 +81,8 @@ const useWordle = (solution) => {
             //     return
             // }
             
-            formatGuess()
+            const format = formatGuess()
+            console.log(format)
         }
         if (key === 'Backspace') {
             setCurrentGuess((prev) => {
