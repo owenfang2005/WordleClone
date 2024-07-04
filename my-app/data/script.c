@@ -3,7 +3,8 @@
 #include <stdlib.h>
 
 int main(void) {
-
+    //C:\msys64\ucrt64\bin\gcc.exe
+    //https://code.visualstudio.com/docs/cpp/config-mingw#_check-your-mingw-installation
     // Creating input and output file
     FILE *fh_input;
     fh_input = fopen("words.txt", "r");
@@ -12,6 +13,17 @@ int main(void) {
 
     // Print beginning of output file
     fprintf(fh_output, "{\n");
+
+    //Adding LETTERS
+    char alphabet[26]= {'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Z', 'X', 'C', 'V', 'B', 'N', 'M'};
+    fprintf(fh_output, "\t\"letters\": [\n");
+    for(int i = 0; i < 25; i++) {
+        fprintf(fh_output, "\t\t{\"key\": \"%c\"},\n", alphabet[i]); //adds letters a-y
+    }
+    fprintf(fh_output, "\t\t{\"key\": \"M\"}\n"); //adds letter z (without comma)
+    fprintf(fh_output, "],\n");
+
+    //Adding words
     fprintf(fh_output, "\t\"solutions\": [\n");
 
     // Including newline and terminating character
