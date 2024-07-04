@@ -30,8 +30,8 @@ h1 {
   font-size: 2em;
 }
 .green {
-  --background: #5ac85a;
-  --border-color: #5ac85a;
+  --background: #48be48;
+  --border-color: #48be48;
   animation: flip 0.5s ease forwards
 }
 .grey {
@@ -40,8 +40,8 @@ h1 {
   animation: flip 0.5s ease forwards
 }
 .yellow {
-  --background: #e2cc68;
-  --border-color: #e2cc68;
+  --background: #dbc253;
+  --border-color: #dbc253;
   animation: flip 0.5s ease forwards
 }
 
