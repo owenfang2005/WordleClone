@@ -29,3 +29,15 @@ h1 {
   font-weight: bold;
   font-size: 2.5em;
 }
+.green {
+  background: #5ac85a;
+  border-color: #5ac85a;
+}
+.grey {
+  background: #a1a1a1;
+  border-color: #a1a1a1;
+}
+.yellow {
+  background: #e2cc68;
+  border-color: #e2cc68;
+}
