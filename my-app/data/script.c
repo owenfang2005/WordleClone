@@ -15,12 +15,13 @@ int main(void) {
     fprintf(fh_output, "{\n");
 
     //Adding LETTERS
-    char alphabet[26]= {'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Z', 'X', 'C', 'V', 'B', 'N', 'M'};
+    char upAlphabet[26]= {'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Z', 'X', 'C', 'V', 'B', 'N', 'M'};
+    char lowAlphabet[26] = {'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm'};
     fprintf(fh_output, "\t\"letters\": [\n");
     for(int i = 0; i < 25; i++) {
-        fprintf(fh_output, "\t\t{\"key\": \"%c\"},\n", alphabet[i]); //adds letters a-y
+        fprintf(fh_output, "\t\t{\"key\": \"%c\", \"display\": \"%c\"},\n", lowAlphabet[i], upAlphabet[i]); //adds letters Q-N and q-n
     }
-    fprintf(fh_output, "\t\t{\"key\": \"M\"}\n"); //adds letter z (without comma)
+    fprintf(fh_output, "\t\t{\"key\": \"m\", \"display\": \"M\"}\n"); //adds letter m (without comma)
     fprintf(fh_output, "],\n");
 
     //Adding words

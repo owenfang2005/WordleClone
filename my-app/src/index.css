@@ -50,10 +50,12 @@ h1 {
   max-width: 500px;
   margin: 20px auto;
 }
-div.Z {
+/* to bring down the z row for QWERTY format */
+div.z {
   margin: 6px !important;
   width: 40px !important;
 }
+/* format rows */
 .keypad > div {
   margin: 5px;
   width: 40px;
@@ -81,6 +83,23 @@ div.Z {
 /* when letter is being typed */
 .filled {
   animation: pop 0.08s ease-in-out forwards;
+}
+
+/* animations for when a guess is made */
+.keypad > div.green {
+  background: #5ac85a;
+  color: #fff;
+  transition: all 0.75 s ease-in;
+}
+.keypad > div.yellow {
+  background: #e2cc68;
+  color: #fff;
+  transition: all 0.75s ease-in;
+}
+.keypad > div.grey {
+  background: #a1a1a1;
+  color: #fff;
+  transition: all 0.75s ease-in;
 }
 
 /* animations */
