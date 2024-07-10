@@ -57,11 +57,33 @@ const useWordle = (solution) => {
         setTurn((prevTurn) => {
             return prevTurn + 1 // add one to the turn
         })
-        setUsedKeys((prevUsedKeys) => {
+        setUsedKeys(prevUsedKeys => {
             let newKeys = {...prevUsedKeys}
-            formattedGuess.forEach((l) => {
+
+            formattedGuess.forEach(l => {
                 const currentColor = newKeys[l.key] 
+                // prevUsedKeys[l.key] = "test"
+                // console.log("this is a test")
+                // console.log(l.key)
+                // console.log(prevUsedKeys[l.key])
+
+                if (l.color === 'green') {
+                    newKeys[l.key] = 'green ' + l.key // adds the key class
+                    return
+                }
+
+                if (l.color === 'yellow' && currentColor !== 'green') {
+                    newKeys[l.key] = 'yellow ' + l.key
+                    return
+                }
+
+                if (l.color === 'grey' && currentColor !== ('green' || 'yellow')) {
+                    newKeys[l.key] = 'grey ' + l.key
+                    return
+                }
             })
+
+            return newKeys
         })
         setCurrentGuess('')
     }
@@ -120,7 +142,7 @@ const useWordle = (solution) => {
         }
     }
 
-    return {turn, currentGuess, guesses, isCorrect, handleKeyup} // returns functions to be used in other files
+    return {turn, currentGuess, guesses, isCorrect, handleKeyup, usedKeys} // returns functions to be used in other files
 }
 
 export default useWordle
