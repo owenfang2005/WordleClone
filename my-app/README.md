@@ -2,6 +2,7 @@
 # To add:
 # - Check if word is valid
 # - Clickable keyboard
+# - Toggeable hard mode
 
 # Getting Started with Create React App
 
