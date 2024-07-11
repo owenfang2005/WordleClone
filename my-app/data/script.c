@@ -30,15 +30,16 @@ int main(void) {
     // Including newline and terminating character
     char word[7];
     int count = 1;
-    // While the file is not empty and the last word is "pupal"
-    while (fgets(word, 7, fh_input) != NULL && (word[0] != 'p' || word[1] != 'u' || word[2] != 'p' || word[3] != 'a' || word[4] != 'l')) {
+    // While the file is not empty and the last word is "zones"
+    //REF: https://gist.github.com/shmookey/b28e342e1b1756c4700f42f17102c2ff
+    while (fgets(word, 7, fh_input) != NULL && (word[0] != 'z' || word[1] != 'o' || word[2] != 'n' || word[3] != 'e' || word[4] != 's')) {
         // Remove newline from the array
         word[strcspn(word, "\n")] = 0;
         // Print the word in proper format
         fprintf(fh_output, "\t\t{\"word\": \"%s\", \"id\": %d},\n", word, count);
         count++;
     }
-    fprintf(fh_output, "\t\t{\"word\": \"pupal\", \"id\": %d}", count);
+    fprintf(fh_output, "\t\t{\"word\": \"zones\", \"id\": %d}", count);
 
     fprintf(fh_output, "\n\t]\n}");
 
