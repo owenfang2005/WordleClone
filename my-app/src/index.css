@@ -113,8 +113,9 @@ div.z {
 }
 .modal div {
   max-width: 480px;
+  height: 200px;
   background: #fff;
-  padding: 40px;
+  padding: 70px;
   border-radius: 10px;
   margin: 10% auto;
   box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
@@ -125,6 +126,24 @@ div.z {
   font-size: 0.8em;
   text-transform: uppercase;
   letter-spacing: 1px;
+}
+.modal div.playAgain {
+  max-width: 80px;
+  height: 10px;
+  background: #99cf82;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 10% auto;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+}
+.modal p.pa {
+  color: rgb(255, 255, 255);
+  letter-spacing: 0px;
+  width: 150px;
+  position: fixed;
+  bottom: 252px;
+  right: 668px;
+  font-weight: 400;
 }
 
 
@@ -166,3 +185,4 @@ div.z {
     border-color: #1d1d1d;
    }
 }
+
