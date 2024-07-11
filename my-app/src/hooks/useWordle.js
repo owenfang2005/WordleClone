@@ -62,22 +62,18 @@ const useWordle = (solution) => {
 
             formattedGuess.forEach(l => {
                 const currentColor = newKeys[l.key] 
-                // prevUsedKeys[l.key] = "test"
-                // console.log("this is a test")
-                // console.log(l.key)
-                // console.log(prevUsedKeys[l.key])
 
                 if (l.color === 'green') {
                     newKeys[l.key] = 'green ' + l.key // adds the key class
                     return
                 }
 
-                if (l.color === 'yellow' && currentColor !== 'green') {
+                if (l.color === 'yellow' && currentColor !== 'green ' + l.key) {
                     newKeys[l.key] = 'yellow ' + l.key
                     return
                 }
 
-                if (l.color === 'grey' && currentColor !== ('green' || 'yellow')) {
+                if (l.color === 'grey' && currentColor !== ('green ' + l.key || 'yellow' + l.key)) {
                     newKeys[l.key] = 'grey ' + l.key
                     return
                 }
