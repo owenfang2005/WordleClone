@@ -3,6 +3,8 @@
 # - Check if word is valid
 # - Clickable keyboard
 # - Toggeable hard mode
+# - Play again button
+# - Score tracking
 
 # Getting Started with Create React App
 
