@@ -5,6 +5,7 @@
 # - Toggeable hard mode
 # - Play again button
 # - Score tracking
+# - Closable and openable game over tab
 
 # Getting Started with Create React App
 
