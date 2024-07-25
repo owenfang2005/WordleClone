@@ -1,0 +1,16 @@
+play again feature
+- get a new solution
+- reset constants (history, guessed words, key colors, etc.)
+- make isCorrect null
+
+idea:
+- create boolean variable (false)
+- make true when button is clicked
+- add variable as dependency in App.js to get a new solution when button is clicked
+
+- maybe get constant from a PlayAgain.js file like how Wordle.js gets constants from useWordle.js file
+- add same constant into Wordle.js so in line 43 you can add it as a constant for Modal.js line 3
+- i think export a function that changes the variable from true to false that can be called with button onclick
+- hopefully this will serve to reset the useeffect in App.js and get a new solution
+
+- next figure out how to reset everything else
